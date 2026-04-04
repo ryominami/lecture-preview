@@ -168,7 +168,7 @@ font-size:12px;font-weight:600;cursor:pointer;color:#dc2626}
 <div id="app">
 <div class="w">
 <div class="hdr">
-<div><h1>Lecture Preview</h1><small>Generated 2026-04-03 20:54</small></div>
+<div><h1>Lecture Preview</h1><small>Generated 2026-04-05 06:13</small></div>
 <div class="hdr-st">
 <span class="sc"><b>87</b> docs</span>
 <span class="sc"><b>160,625</b> chars</span>
@@ -228,12 +228,12 @@ function tryUnlock(){
 const p=document.getElementById('pw').value;
 crypto.subtle.digest('SHA-256',new TextEncoder().encode(p)).then(buf=>{
 const h=Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
-if(h===H){sessionStorage.setItem('lp-ok','1');show()}
+if(h===H){localStorage.setItem('lp-ok','1');show()}
 else{document.getElementById('err').textContent='Incorrect password'}
 });
 }
 function show(){document.getElementById('lock').classList.add('off');document.getElementById('app').classList.add('on');init()}
-if(sessionStorage.getItem('lp-ok')==='1')show();
+if(localStorage.getItem('lp-ok')==='1')show();
 document.getElementById('pw').addEventListener('keydown',e=>{if(e.key==='Enter')tryUnlock()});
 
 // MD to HTML (client-side)
